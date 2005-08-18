@@ -1,0 +1,19 @@
+name: Acme-PerlML
+version: 0.01
+abstract: Replaces your ugly Perl code with powerful XML
+author: Adam Kennedy <cpan@ali.as>
+license: perl
+distribution_type: module
+build_requires:
+  Test::More: 0.47
+  File::Spec: 0.80
+requires:
+  perl: 5.005
+  PPI: 1.002
+  Perl::SAX: 0.06
+  XML::Parser::PerlSAX: 0
+  XML::SAX: 0
+no_index:
+  directory:
+    - inc
+generated_by: Module::Install version 0.36
