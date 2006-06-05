@@ -1,30 +1,6 @@
 package Acme::PerlML;
 
-=pod
-
-=head1 NAME
-
-Acme::PerlML - Replaces your ugly Perl code with powerful XML
-
-=head1 SYNOPSIS
-
-  use Acme::PerlML;
-  
-  print "Hello World!\n";
-
-=head1 DESCRIPTION
-
-C<Acme::PerlML> is a member of the L<Acme::Bleach> family of modules.
-
-The first time you run your program, it takes your ugly Perl code and
-replaces it with powerful and sophisticated XML, the choice of...
-well... 1998 - 2002... ish. :/
-
-The code continues to work exactly as it did before, but now it looks
-like this:
-
-=cut
-
+use 5.005;
 use strict;
 use PPI;
 use Perl::SAX;
@@ -33,7 +9,7 @@ use base qw(XML::SAX::Base);
 
 use vars qw{$VERSION $CODE};
 BEGIN {
-	$VERSION = '0.01';
+	$VERSION = '1.00';
 	$CODE    = '';
 }
 
@@ -79,11 +55,34 @@ sub import {
 
 1;
 
+__END__
+
 =pod
+
+=head1 NAME
+
+Acme::PerlML - Replaces your ugly Perl code with powerful XML
+
+=head1 SYNOPSIS
+
+  use Acme::PerlML;
+  
+  print "Hello World!\n";
+
+=head1 DESCRIPTION
+
+C<Acme::PerlML> is a member of the L<Acme::Bleach> family of modules.
+
+The first time you run your program, it takes your ugly Perl code and
+replaces it with powerful and sophisticated XML, the choice of...
+well... 1998 to... erm... 2002... ish. :/
+
+The code continues to work exactly as it did before, but now it looks
+like this:
 
 =head1 SEE ALSO
 
-L<Acme::Bleach>, L<Acme::Pony>, L<PPI>, L<Perl::SAX>
+L<Acme::Bleach>, L<Acme::Pony>, L<PPI>, L<Perl::SAX>, L<http://ali.as/>
 
 =head1 AUTHOR
 
@@ -93,7 +92,7 @@ Refactored, documented and released by Adam Kennedy
 
 =head1 COPYRIGHT
 
-Copyright (c) 2005 Dan Brooks and Adam Kennedy. All rights reserved.
+Copyright 2005 - 2006 Dan Brooks and Adam Kennedy. All rights reserved.
 
 This program is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.

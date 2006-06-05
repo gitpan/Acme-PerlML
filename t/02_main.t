@@ -4,19 +4,23 @@
 
 use strict;
 use lib ();
-use UNIVERSAL 'isa';
 use File::Spec::Functions ':ALL';
 BEGIN {
 	$| = 1;
 	unless ( $ENV{HARNESS_ACTIVE} ) {
 		require FindBin;
-		chdir ($FindBin::Bin = $FindBin::Bin); # Avoid a warning
-		lib->import( catdir( updir(), updir(), 'modules') );
+		$FindBin::Bin = $FindBin::Bin; # Avoid a warning
+		chdir catdir( $FindBin::Bin, updir() );
+		lib->import(
+			catdir('blib', 'arch'),
+			catdir('blib', 'lib' ),
+			catdir('lib'),
+			);
 	}
 }
 
-use Acme::PerlML ();
 use Test::More tests => 4;
+use Acme::PerlML ();
 
 my $code = <<'END_CODE';
 print "Hello World";
@@ -33,5 +37,3 @@ END_XML
 my $code2 = Acme::PerlML::xml2code( $XML );
 ok( $code2, 'Converted back to code' );
 is( $code2, $code, 'Code is the same as the original' );
-
-exit(0);
